@@ -22,6 +22,7 @@
 
   <div class="col-8 m-auto pt-4 pb-2 text-center">
     <form name="form" id="form" action="/create/" method="post">
+      <!-- essa ação é enviada pra o CREATE feito lá na views.py -->
       {% csrf_token %}
       <div class="form-group mt-4 mb-4">Título: {{form.titulo}}</div>
       <div class="form-group mt-4 mb-4">Autor: {{form.autor}}</div>
