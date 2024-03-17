@@ -21,8 +21,23 @@ def create(request):
         form.save() #vai salvar os dados no DB
         return redirect('home') #Redireciona pra home page
     
-def view(request, pk): #Define a função de visualização, que recebe a chave primária como parâmetro
+def view(request, pk): #função de visualização, recebe uma requisição e a chave primária como parâmetro
     data = {} #cria dicionário para armazenar os dados a serem passados para o template
     data['db'] = Livros.objects.get(pk = pk) #pega o valor da chave prim. e armazena no dicionário 
     return render(request, 'view.html', data) #renderiza o view.html com os dados do dicionário
 
+
+def edit(request, pk): #recebe uma requisição e a chave primária como parâmetro
+    data = {} #cria dicionário para armazenar os dados a serem passados para o template
+    data['db'] = Livros.objects.get(pk=pk) #pega o valor da chave prim. e armazena no dicionário 
+    data['form'] = LivrosForm(instance=data['db']) #recebe dados do formulario chamando uma instancia do DB  
+    return render(request, 'form.html', data) #renderiza o form.html com os dados do dicionário
+
+def update(request, pk):
+    data = {}
+    data['db'] = Livros.objects.get(pk=pk) #Obtém o objeto do banco de dados com a chave primária fornecida
+    form = LivrosForm(request.POST or None, instance=data['db']) # instance é usado para preencher o formulário com os dados do objeto do banco de dados  
+    #pega os dados que estão vindo via post e fazer o update
+    if form.is_valid(): #se o formulário for válido
+        form.save() #vai salvar os dados no DB
+        return redirect('home') #Redireciona pra home page
