@@ -33,11 +33,17 @@ def edit(request, pk): #recebe uma requisição e a chave primária como parâme
     data['form'] = LivrosForm(instance=data['db']) #recebe dados do formulario chamando uma instancia do DB  
     return render(request, 'form.html', data) #renderiza o form.html com os dados do dicionário
 
-def update(request, pk):
-    data = {}
+def update(request, pk): #recebe uma requisição e a chave primária como parâmetro
+    data = {}  #cria dicionário para armazenar os dados a serem passados para o template
     data['db'] = Livros.objects.get(pk=pk) #Obtém o objeto do banco de dados com a chave primária fornecida
     form = LivrosForm(request.POST or None, instance=data['db']) # instance é usado para preencher o formulário com os dados do objeto do banco de dados  
     #pega os dados que estão vindo via post e fazer o update
     if form.is_valid(): #se o formulário for válido
         form.save() #vai salvar os dados no DB
         return redirect('home') #Redireciona pra home page
+    
+
+def delete(request, pk): #recebe uma requisição e a chave primária como parâmetro
+    db = Livros.objects.get(pk=pk) #Obtém o objeto do banco de dados com a chave primária fornecida  
+    db.delete() #deleta a linha da tabela de acordo com pk atual
+    return redirect('home') #Redireciona pra home page
