@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from appcrud.forms import LivrosForm
 from appcrud.models import Livros
 
+
 # Create your views here.
 
 def home(request):

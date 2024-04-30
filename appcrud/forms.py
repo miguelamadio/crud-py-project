@@ -8,3 +8,4 @@ class LivrosForm(ModelForm):
          model = Livros
          #define os campos que estarão no formulário
          fields = ["titulo", "autor", "editora", "genero","ano_ed"]
+    
