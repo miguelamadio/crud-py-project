@@ -17,7 +17,7 @@
   </div>
 
   <div class="col-8 m-auto pt-3 pb-2 text-center">
-    <a href="/form" class="btn btn-success">Adicionar</a>
+    <a href="/form_vendedor" class="btn btn-success">Adicionar</a>
   </div>
 
   <div class="col-8 m-auto pt-4 pb-2 text-center">
@@ -26,12 +26,11 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Capa</th>
-          <th scope="col">Título</th>
-          <th scope="col">Autor</th>
-          <th scope="col">Editora</th>
-          <th scope="col">Gênero</th>
-          <th scope="col">Ano de edição</th>
+          <th scope="col">Nome</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Contato</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">PIS</th>
           <th scope="col">Ações</th>
         </tr>
       </thead>
@@ -39,25 +38,24 @@
         {% for dbs in db %}
 
         <tr>
-          <th>{{dbs.idLivro}}</th>
-          <td>{{dbs.capa}}</td>
-          <td>{{dbs.titulo}}</td>
-          <td>{{dbs.autor}}</td>
-          <td>{{dbs.editora}}</td>
-          <td>{{dbs.genero}}</td>
-          <td>{{dbs.ano_ed}}</td>
+          <th>{{dbs.idVendedor}}</th>
+          <td>{{dbs.nome}}</td>
+          <td>{{dbs.cpf}}</td>
+          <td>{{dbs.contato}}</td>
+          <td>{{dbs.endereco}}</td>
+          <td>{{dbs.pis}}</td>
           <td>
-            <a href="/view/{{dbs.idLivro}}/" class="btn btn-dark">Visualizar</a>
-            <a href="/edit/{{dbs.idLivro}}/" class="btn btn-primary">Editar</a>
-            <a href="/delete/{{dbs.idLivro}}/" class="btn btn-danger btnDel">Deletar</a>
+            <a href="/view_vendedor/{{dbs.idVendedor}}/" class="btn btn-dark">Visualizar</a>
+            <a href="/edit_vendedor/{{dbs.idVendedor}}/" class="btn btn-primary">Editar</a>
+            <a href="/delete_vendedor/{{dbs.idVendedor}}/" class="btn btn-danger btnDel">Deletar</a>
             <!-- btnDel criado para tomar como referencia o botão de deletar lá no js -->
           </td>
         </tr>
         {% endfor %}
 
         <div class="col-8 m-auto pt-3 pb-2 text-center">
-          <a href="/home_vendedor" class="btn btn-success">Vendedor</a>
-        </div>
+            <a href="/" class="btn btn-success">Home</a>
+          </div>
       </tbody>
     </table>
   </div>

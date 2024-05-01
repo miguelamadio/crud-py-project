@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Livros(models.Model):
-    #idLivro = models.BigAutoField(primary_key=True)
+    idLivro = models.BigAutoField(primary_key=True)
     capa = models.ImageField()
     titulo = models.CharField(max_length=70)
     autor = models.CharField(max_length=70)
@@ -11,7 +11,7 @@ class Livros(models.Model):
     ano_ed = models.CharField(max_length=4)
 
 class Cliente(models.Model):
-    #idCliente = models.BigAutoField(primary_key=True)
+    idCliente = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=70)
     cpf = models.CharField(max_length=11)
     contato = models.CharField(max_length=20)
@@ -19,7 +19,7 @@ class Cliente(models.Model):
     flamenguista = models.BooleanField()
 
 class Vendedor(models.Model):
-    #idVendedor = models.BigAutoField(primary_key=True)
+    idVendedor = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=70)
     cpf = models.CharField(max_length=11)
     contato = models.CharField(max_length=20)
@@ -27,17 +27,18 @@ class Vendedor(models.Model):
     pis = models.CharField(max_length=11)
 
 class Vendas(models.Model):
-    #idVenda = models.BigAutoField(primary_key=True)
+    idVenda = models.BigAutoField(primary_key=True)
     idCliente = models.ForeignKey("Cliente", on_delete=models.CASCADE)
     idVendedor = models.ForeignKey("Vendedor", on_delete=models.CASCADE)
     idPedido = models.ForeignKey("Item", on_delete=models.CASCADE)
 
 class Item(models.Model):
-    #idItem = models.BigAutoField(primary_key=True)
+    idItem = models.BigAutoField(primary_key=True)
     idPedido = models.ForeignKey("Pedido", on_delete=models.CASCADE)
     idLivro = models.ForeignKey("Livros", on_delete=models.CASCADE)
     quantidade = models.IntegerField()
     total = models.IntegerField()
 
 class Pedido(models.Model):
-    #idPedido = models.BigAutoField(primary_key=True)
+    idPedido = models.BigAutoField(primary_key=True)
+    idCliente = models.ForeignKey("Cliente", on_delete=models.CASCADE, default="2121")

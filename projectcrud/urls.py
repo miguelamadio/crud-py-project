@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from appcrud.views import home, form, create, view, edit, update, delete
+from appcrud.views import home, form, create, view, edit, update, delete, home_vendedor, form_vendedor, create_vendedor, view_vendedor, edit_vendedor, update_vendedor, delete_vendedor
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +26,15 @@ urlpatterns = [
     path('view/<int:pk>/', view, name='view'),
     path('edit/<int:pk>/', edit, name='edit'),
     path('update/<int:pk>/', update, name='update'), 
-    path('delete/<int:pk>/', delete, name='delete'), 
+    path('delete/<int:pk>/', delete, name='delete'),
+    #VENDEDOR
+    path('home_vendedor', home_vendedor, name = 'home_vendedor'), 
+    path('form_vendedor/', form_vendedor, name = 'form_vendedor'), 
+    path('create_vendedor/', create_vendedor, name = 'create_vendedor'), 
+    path('view_vendedor/<int:pk>/', view_vendedor, name='view_vendedor'),
+    path('edit_vendedor/<int:pk>/', edit_vendedor, name='edit_vendedor'),
+    path('update_vendedor/<int:pk>/', update_vendedor, name='update_vendedor'), 
+    path('delete_vendedor/<int:pk>/', delete_vendedor, name='delete_vendedor'),  
 
 ]
 #criado os caminhos na interface
