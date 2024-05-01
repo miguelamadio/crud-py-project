@@ -21,3 +21,12 @@ class VendedorForm(ModelForm):
          #define os campos que estarão no formulário
          fields = ["nome", "cpf", "contato", "endereco","pis"]
 
+# Cria a classe de formulário.
+class ClienteForm(ModelForm):
+     class Meta:
+         #o modelo toma como base o metodo LIVROS
+         model = Cliente
+         #define os campos que estarão no formulário
+         fields = ["nome", "cpf","contato", "endereco","flamenguista"]
+
+

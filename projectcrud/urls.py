@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from appcrud.views import home, form, create, view, edit, update, delete, home_vendedor, form_vendedor, create_vendedor, view_vendedor, edit_vendedor, update_vendedor, delete_vendedor
+from appcrud.views import home, form, create, view, edit, update, delete, home_vendedor, form_vendedor,create_vendedor, view_vendedor, edit_vendedor, update_vendedor, delete_vendedor,clienteForm, createCliente, indexClientesTable, update_c, delete_c, edit_c
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,7 +35,13 @@ urlpatterns = [
     path('edit_vendedor/<int:pk>/', edit_vendedor, name='edit_vendedor'),
     path('update_vendedor/<int:pk>/', update_vendedor, name='update_vendedor'), 
     path('delete_vendedor/<int:pk>/', delete_vendedor, name='delete_vendedor'),  
-
+    #CLIENTE
+    path('formCliente/', clienteForm, name = 'clienteForm'), 
+    path('createCliente/', createCliente, name='createCliente'),
+    path('indexClientesTable/', indexClientesTable, name = 'indexClientesTable'), 
+    path('edit_c/<int:pk>/', edit_c, name='edit_c'),
+    path('update_c/<int:pk>/', update_c, name='update_c'), 
+    path('delete_c/<int:pk>/', delete_c, name='delete_c'),
 ]
 #criado os caminhos na interface
  # a chave primária, como um inteiro, é passada como parametro
